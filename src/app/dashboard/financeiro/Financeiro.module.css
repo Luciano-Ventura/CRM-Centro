@@ -1,0 +1,102 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary-dark);
+}
+
+.btnCreate {
+  padding: 0.8rem 1.5rem;
+  background: var(--color-secondary);
+  color: var(--color-primary-dark);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  border: none;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.btnCreate:hover {
+  background: var(--color-secondary-light);
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardLabel {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.cardValue {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.valEntrada { color: #16a34a; }
+.valSaida { color: #dc2626; }
+.valSaldo { color: var(--color-primary-dark); }
+
+.tableContainer {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.th {
+  padding: 1rem;
+  color: #666;
+  font-weight: 600;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.td {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: var(--color-foreground);
+}
+
+.badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badgeEntrada { background: #dcfce7; color: #166534; }
+.badgeSaida { background: #fee2e2; color: #991b1b; }

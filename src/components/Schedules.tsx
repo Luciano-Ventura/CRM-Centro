@@ -1,4 +1,5 @@
 import styles from "./Schedules.module.css";
+import Link from "next/link";
 
 const SCHEDULES = [
   { day: "Segunda-feira, 20h00", type: "Gira de Desenvolvimento / Esquerda (Exus e Pombagiras)" },
@@ -18,7 +19,7 @@ export default function Schedules() {
                 <span className={styles.day}>{sched.day}</span>
                 <span className={styles.type}>{sched.type}</span>
               </div>
-              <button className={styles.btnAction}>Agendar Consulta</button>
+              <Link href="/login" className={styles.btnAction}>Marcar Presença</Link>
             </div>
           ))}
         </div>

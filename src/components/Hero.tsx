@@ -40,8 +40,7 @@ export default function Hero() {
         <p className={styles.subtitle}>Amor, Fé e Caridade guiando nossos caminhos</p>
         
         <div className={styles.actions}>
-          <button className={styles.btnPrimary}>Agendar Atendimento</button>
-          <button className={styles.btnOutline}>Conheça o Centro</button>
+          <a href="/login" className={styles.btnPrimary}>Conheça o Centro</a>
         </div>
       </div>
     </section>

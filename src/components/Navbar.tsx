@@ -21,8 +21,8 @@ export default function Navbar() {
       </ul>
 
       <div className={styles.actions}>
-        <button className={styles.btnOutline}>Entrar</button>
-        <button className={styles.btnPrimary}>Cadastrar</button>
+        <Link href="/login" className={styles.btnOutline}>Entrar</Link>
+        <Link href="/register" className={styles.btnPrimary}>Cadastrar</Link>
       </div>
     </nav>
   );
