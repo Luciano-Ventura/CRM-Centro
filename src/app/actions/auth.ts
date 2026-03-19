@@ -19,8 +19,8 @@ export async function login(formData: FormData) {
   const cookieStore = await cookies()
   cookieStore.set('mock_session', 'membro', { path: '/' })
 
-  revalidatePath('/')
-  redirect('/')
+  revalidatePath('/dashboard')
+  redirect('/dashboard')
 }
 
 export async function signup(formData: FormData): Promise<{ error: string } | void> {
@@ -29,8 +29,8 @@ export async function signup(formData: FormData): Promise<{ error: string } | vo
   const cookieStore = await cookies()
   cookieStore.set('mock_session', 'membro', { path: '/' })
 
-  revalidatePath('/')
-  redirect('/')
+  revalidatePath('/dashboard')
+  redirect('/dashboard')
 }
 
 export async function logout() {
