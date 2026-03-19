@@ -23,14 +23,30 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-primary-dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoImage {
   height: 48px;
   width: auto;
 }
 
+.navContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .navLinks {
   display: flex;
+  align-items: center;
   gap: 2rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navLink {
@@ -39,6 +55,7 @@
   transition: var(--transition-fast);
   position: relative;
   font-size: 0.95rem;
+  text-decoration: none;
 }
 
 .navLink:hover {
@@ -73,6 +90,7 @@
   border-radius: var(--radius-md);
   font-weight: 600;
   transition: var(--transition-fast);
+  text-decoration: none;
 }
 
 .btnOutline:hover {
@@ -88,6 +106,7 @@
   border-radius: var(--radius-md);
   font-weight: 600;
   transition: var(--transition-fast);
+  text-decoration: none;
 }
 
 .btnPrimary:hover {
@@ -95,9 +114,50 @@
   border-color: var(--color-primary-dark);
 }
 
-@media (max-width: 1024px) {
-  .navLinks { display: none; }
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  padding: 0.5rem;
 }
-@media (max-width: 768px) {
-  .actions { display: none; }
+
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .navContainer {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border-top: 1px solid #eee;
+  }
+
+  .navContainerOpen {
+    display: flex;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btnOutline, .btnPrimary {
+    width: 100%;
+    text-align: center;
+  }
 }
