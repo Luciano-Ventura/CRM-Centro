@@ -135,7 +135,7 @@ export default function FinanceiroPage() {
                 paddingAngle={5}
                 dataKey="value"
                 nameKey="name"
-                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                label={({ name, percent = 0 }) => `${name} ${(percent * 100).toFixed(0)}%`}
               >
                 {categoryData.map((entry: any, index: number) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
