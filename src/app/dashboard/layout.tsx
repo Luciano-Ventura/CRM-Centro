@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './Dashboard.module.css'
@@ -7,6 +8,7 @@ import { logout } from '@/app/actions/auth'
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const links = [
     { href: '/dashboard', label: 'Visão Geral', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
@@ -18,7 +20,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <div className={styles.layout}>
-      <aside className={styles.sidebar}>
+      {isSidebarOpen && <div className={styles.sidebarOverlay} onClick={() => setIsSidebarOpen(false)} />}
+      
+      <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ''}`}>
         <div className={styles.brand}>
           <svg width="24" height="24" fill="none" stroke="var(--color-secondary)" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"></path></svg>
           SGC - CUVCCA
@@ -30,6 +34,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               key={link.href} 
               href={link.href}
               className={`${styles.navLink} ${pathname === link.href ? styles.active : ''}`}
+              onClick={() => setIsSidebarOpen(false)}
             >
               <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d={link.icon}></path></svg>
               {link.label}
@@ -47,8 +52,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
       <main className={styles.main}>
         <header className={styles.header}>
+          <div className={styles.headerLeft}>
+            <button className={styles.mobileMenuBtn} onClick={() => setIsSidebarOpen(true)}>
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <span className={styles.mobileBrand}>CUVCCA</span>
+          </div>
+
           <div className={styles.userInfo}>
-            <div style={{ textAlign: "right" }}>
+            <div style={{ textAlign: "right" }} className={styles.userTextInfo}>
               <div className={styles.userName}>João Silva (Mock)</div>
               <div className={styles.userRole}>Administrador</div>
             </div>

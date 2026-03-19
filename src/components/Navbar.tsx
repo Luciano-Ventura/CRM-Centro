@@ -1,29 +1,43 @@
 "use client";
 
-import Link from "next/link";
-import styles from "./Navbar.module.css";
-/* eslint-disable @next/next/no-img-element */
+import { useState } from 'react'
+import Link from 'next/link'
+import styles from './Navbar.module.css'
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <nav className={styles.navbar}>
-      <Link href="/" className={styles.logo}>
-        <img src="/images/logo.png" alt="Logo CUVCCA" className={styles.logoImage} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-        <span>C.U.V.C.C.A</span>
-      </Link>
-      
-      <ul className={styles.navLinks}>
-        <li><Link href="#inicio" className={styles.navLink}>Início</Link></li>
-        <li><Link href="#sobre" className={styles.navLink}>Sobre Nós</Link></li>
-        <li><Link href="#giras" className={styles.navLink}>Giras</Link></li>
-        <li><Link href="#faca-parte" className={styles.navLink}>Faça Parte</Link></li>
-        <li><Link href="#contato" className={styles.navLink}>Contato</Link></li>
-      </ul>
+      <div className={styles.container}>
+        <Link href="/" className={styles.logo}>
+          Vovô Congo
+        </Link>
+        
+        {/* Hamburger Icon */}
+        <button className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+          <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            {isOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
 
-      <div className={styles.actions}>
-        <Link href="/login" className={styles.btnOutline}>Entrar</Link>
-        <Link href="/register" className={styles.btnPrimary}>Cadastrar</Link>
+        <div className={`${styles.navLinks} ${isOpen ? styles.navLinksOpen : ''}`}>
+          <Link href="#inicio" className={styles.link} onClick={() => setIsOpen(false)}>Início</Link>
+          <Link href="#sobre" className={styles.link} onClick={() => setIsOpen(false)}>Sobre Nós</Link>
+          <Link href="#giras" className={styles.link} onClick={() => setIsOpen(false)}>Giras</Link>
+          <Link href="#fazer-parte" className={styles.link} onClick={() => setIsOpen(false)}>Faça Parte</Link>
+          <Link href="#contato" className={styles.link} onClick={() => setIsOpen(false)}>Contato</Link>
+          
+          <div className={styles.authButtons}>
+            <Link href="/login" className={styles.btnOutline} onClick={() => setIsOpen(false)}>Entrar</Link>
+            <Link href="/register" className={styles.btnPrimary} onClick={() => setIsOpen(false)}>Cadastrar</Link>
+          </div>
+        </div>
       </div>
     </nav>
-  );
+  )
 }
