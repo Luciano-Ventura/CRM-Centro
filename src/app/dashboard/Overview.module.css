@@ -47,6 +47,24 @@
   color: #888;
 }
 
+.chartsRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chartPanel {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .sections {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -86,5 +104,6 @@
 }
 
 @media (max-width: 1024px) {
+  .chartsRow { grid-template-columns: 1fr; }
   .sections { grid-template-columns: 1fr; }
 }

@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: 1.5rem;
 }
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -11,13 +10,11 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
-
 .title {
   font-family: var(--font-heading);
   font-size: 2rem;
   color: var(--color-primary-dark);
 }
-
 .btnCreate {
   padding: 0.8rem 1.5rem;
   background: var(--color-secondary);
@@ -28,18 +25,14 @@
   transition: var(--transition-fast);
   cursor: pointer;
 }
-
 .btnCreate:hover {
   background: var(--color-secondary-light);
 }
-
 .summary {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
 }
-
 .card {
   background: var(--color-white);
   padding: 1.5rem;
@@ -49,54 +42,152 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .cardLabel {
   font-size: 0.9rem;
   color: #666;
   font-weight: 600;
 }
-
 .cardValue {
   font-size: 2rem;
   font-weight: 700;
 }
-
 .valEntrada { color: #16a34a; }
 .valSaida { color: #dc2626; }
 .valSaldo { color: var(--color-primary-dark); }
-
+.chartsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.chartCard {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 350px;
+}
+.chartTitle {
+  font-size: 1.1rem;
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
 .tableContainer {
   background: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   overflow-x: auto;
 }
-
 .table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
 }
-
 .th {
   padding: 1rem;
   color: #666;
   font-weight: 600;
   border-bottom: 2px solid #f0f0f0;
 }
-
 .td {
   padding: 1rem;
   border-bottom: 1px solid #f0f0f0;
   color: var(--color-foreground);
 }
-
 .badge {
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-full);
   font-size: 0.85rem;
   font-weight: 600;
 }
-
 .badgeEntrada { background: #dcfce7; color: #166534; }
 .badgeSaida { background: #fee2e2; color: #991b1b; }
+.btnEdit {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  background: transparent;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+.btnEdit:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Modals */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 450px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modalTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary-dark);
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+}
+.input, .select {
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+}
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.btnCancel {
+  padding: 0.6rem 1rem;
+  border: none;
+  background: #eee;
+  color: #555;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+}
+.btnSave {
+  padding: 0.6rem 1rem;
+  border: none;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .chartsRow { grid-template-columns: 1fr; }
+}
